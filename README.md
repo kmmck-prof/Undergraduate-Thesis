@@ -1,5 +1,4 @@
-# Undergraduate-Thesis
-Development of a Real-Time, Indoor Air Quality Monitoring System for Public Utility Buses With Wi-Fi-Based Occupancy Counting
+# Development of a Real-Time, Indoor Air Quality Monitoring System for Public Utility Buses With Wi-Fi-Based Occupancy Counting
 
 Authors: 
 Kyle Matthew Cayanana§, Franz Gabriel De Leona§, Rian Jherico Virtucioa§,Neil Christian Astrologoa, John Jairus Eslita, Percival Magpantaya, Julius Lustrob, Joshua Agarc, Marc Rosalesa, John Richard Hizona
