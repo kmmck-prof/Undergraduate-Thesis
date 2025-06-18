@@ -36,5 +36,8 @@ Libraries Used
 - https://www.hackster.io/p99will/esp32-wifi-mac-scanner-sniffer-promiscuous-4c12f4 
 - https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/network/esp_wifi.html?highlight=wifi_promiscuous_pkt_t#_CPPv422wifi_promiscuous_pkt_t 
 
-3. Openthread C API
+3. Openthread C API 
 - https://github.com/openthread/openthread/tree/main/include/openthreadESP-BLE-MESH API https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/bluetooth/esp-ble-mesh.html#api-reference
+
+4. ESP-BLE-MESH API
+- https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/bluetooth/esp-ble-mesh.html#api-reference  
