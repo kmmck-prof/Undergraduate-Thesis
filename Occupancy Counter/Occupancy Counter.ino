@@ -1,20 +1,18 @@
 #include <WiFi.h>
 #include <Wire.h>
-
 #include "esp_wifi.h"
 #include <TimeLib.h>
-
 #include "FS.h"
 #include "SD.h"
 #include "SPI.h"
 
-#define RXD2 17 // orange
-#define TXD2 16 // yellow
+#define RXD2 17 // orange wire
+#define TXD2 16 // yellow wire
 
 //START: Declaration of List and Variables
 
-//------mac address variables---------------------------------------------
-String maclist[200][3];//list of MAC Addresses 
+//------mac address variables-----------------------------------------
+String maclist[200][4];//list of MAC Addresses 
 int listcount = 0; //index count of list
 int onlinecount = 0; //counts the number of people
 
@@ -22,12 +20,12 @@ String defaultTTL = "60"; // Maximum time (Apx seconds) elapsed before device is
 
 
 //------integers for buffer time------------------------------------------
-int on_buffer=60;
+int on_buffer=5;
 
 //CHANGE buffer based on travel speed
-int low_buffer=300;
-int high_buffer=360;
-
+int low_buffer=5;
+int high_buffer=5;
+int rssi_filter=-60;
 
 //------integers for capacity---------------------------------------
 int max_capacity=50;//seating capacity (number of seats)
@@ -77,7 +75,7 @@ void sniffer(void* buf, wifi_promiscuous_pkt_type_t type) { //This is where pack
   WifiMgmtHdr *wh = (WifiMgmtHdr*)p->payload;
   len -= sizeof(WifiMgmtHdr);
   if (len < 0){
-    Serial.println("Receuved 0");
+    Serial.println("Received 0");
     return;
   }
   String packet;
@@ -91,6 +89,7 @@ void sniffer(void* buf, wifi_promiscuous_pkt_type_t type) { //This is where pack
   }
   mac.toUpperCase();
 
+  int rssi = p->rx_ctrl.rssi; // NEW: get RSSI of signal
   
   int added = 0;
 
@@ -102,6 +101,7 @@ void sniffer(void* buf, wifi_promiscuous_pkt_type_t type) { //This is where pack
       if(maclist[i][2] == "OFFLINE"){
         maclist[i][2] = "0";
       }
+      maclist[i][3] = String(rssi); // NEW: update RSSI of wifi
       added = 1;
     }
   }
@@ -109,6 +109,7 @@ void sniffer(void* buf, wifi_promiscuous_pkt_type_t type) { //This is where pack
   if(added == 0){ // If its new. add it to the array.
     maclist[listcount][0] = mac;
     maclist[listcount][1] = defaultTTL;
+    maclist[listcount][3] = String(rssi); // NEW: Store RSSI value
     //Serial.println(mac);
     listcount ++;
     if(listcount >= 200){
@@ -117,6 +118,7 @@ void sniffer(void* buf, wifi_promiscuous_pkt_type_t type) { //This is where pack
     }
   }
 }
+
 
 
 //========================SD Card Functions ===========================================================
@@ -404,11 +406,16 @@ void showpeople(){ // This checks if the MAC is in the reckonized list and then 
 
         //compare with on_buffer
         if(timehere>=on_buffer){
-          Serial.print("(DEBUG) Time Alive:");
-          Serial.print(timehere);
-          Serial.print("   ");
-          Serial.print(maclist[i][0] + "\n");
-          onlinecount++;
+          int rssi_check = (maclist[i][3].toInt());
+          if(rssi_check >= rssi_filter){
+            Serial.print(maclist[i][0] + "    RSSI:");
+            Serial.print(maclist[i][3]);
+            Serial.print("   (DEBUG) Time Alive:");
+            Serial.print(timehere);
+            Serial.print("\n");
+            onlinecount++;
+          }
+          
         }
         
         //Serial.print(maclist[i][0] + "\n");
