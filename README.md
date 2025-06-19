@@ -1,7 +1,7 @@
 # Development of a Real-Time, Indoor Air Quality Monitoring System for Public Utility Buses With Wi-Fi-Based Occupancy Counting
 
 Authors: 
-Kyle Matthew Cayanana§, Franz Gabriel De Leona§, Rian Jherico Virtucioa§,Neil Christian Astrologoa, John Jairus Eslita, Percival Magpantaya, Julius Lustrob, Joshua Agarc, Marc Rosalesa, John Richard Hizona
+Kyle Matthew Cayanan a§, Franz Gabriel De Leon a§, Rian Jherico Virtucio a§, Neil Christian Astrologoa, John Jairus Eslita, Percival Magpantaya, Julius Lustrob, Joshua Agarc, Marc Rosalesa, John Richard Hizona
 
 Writter Under: 
 Electrical and Electronics Engineering Institute, University of the Philippines Diliman, Quezon City, Philippines  
