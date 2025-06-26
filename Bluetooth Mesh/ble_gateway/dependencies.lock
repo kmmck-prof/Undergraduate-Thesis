@@ -1,0 +1,27 @@
+dependencies:
+  button:
+    component_hash: null
+    source:
+      path: C:\Espressif_VSCode\v5.2.1\esp-idf\examples\bluetooth\esp_ble_mesh\common_components\button
+      type: local
+    version: '*'
+  example_init:
+    component_hash: null
+    source:
+      path: C:\Espressif_VSCode\v5.2.1\esp-idf\examples\bluetooth\esp_ble_mesh\common_components\example_init
+      type: local
+    version: '*'
+  example_nvs:
+    component_hash: null
+    source:
+      path: C:\Espressif_VSCode\v5.2.1\esp-idf\examples\bluetooth\esp_ble_mesh\common_components\example_nvs
+      type: local
+    version: '*'
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.2.1
+manifest_hash: 35d79c3546f056d9fcaf9c06ea825988dd905c6eeb9586ba57f895c2448294d2
+target: esp32
+version: 1.0.0

@@ -1,0 +1,15 @@
+dependencies:
+  example_init:
+    component_hash: null
+    source:
+      path: C:\Espressif_VSCode\v5.2.1\esp-idf\examples\bluetooth\esp_ble_mesh\common_components\example_init
+      type: local
+    version: '*'
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.2.1
+manifest_hash: dbae5a4ec6fe8201a03c63fab2866e1b764c2e91b83513a533c19867bf0aa64c
+target: esp32h2
+version: 1.0.0
